@@ -5,5 +5,6 @@
     wofi
     tetrio-desktop
     hyprpaper
+    nm-applet
   ];
 }
