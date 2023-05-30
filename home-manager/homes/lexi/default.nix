@@ -14,7 +14,6 @@
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
-    ./nixpkgs.nix # nixpkgs settings are imported from this file
     ./packages.nix # home.packages and similar stuff
     ./programs.nix # programs.<programName>.enable
   ];

@@ -57,10 +57,10 @@
     overlays = import ./overlays {inherit inputs;};
     # Reusable nixos modules you might want to export
     # These are usually stuff you would upstream into nixpkgs
-    nixosModules = import ./modules/nixos;
+    nixosModules = import ./modules/shared/nixos;
     # Reusable home-manager modules you might want to export
     # These are usually stuff you would upstream into home-manager
-    homeManagerModules = import ./modules/home-manager;
+    homeManagerModules = import ./modules/shared/home-manager;
 
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
@@ -71,6 +71,7 @@
         modules = [
           # > Our main nixos configuration file <
           ./nixos/hosts/messier # this imports the entirety of messier's configs
+          ./modules/nixos # this imports the shared nixos module that lets you re-use settings between hosts
         ];
       };
 
@@ -80,6 +81,7 @@
         modules = [
           # > Our main nixos configuration file <
           ./nixos/hosts/Andromeda # this imports the entirety of host2's configs
+          ./modules/nixos
         ];
       };
     };
