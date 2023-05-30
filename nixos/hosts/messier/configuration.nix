@@ -71,6 +71,7 @@
     hyprland.enable = true;
     steam.enable = true;
     nm-applet.enable = true;
+    swaylock-fancy.enable = true;
   };
   # TODO: Set your hostname
   networking.hostName = "Messier";

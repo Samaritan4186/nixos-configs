@@ -6,5 +6,6 @@
     tetrio-desktop
     hyprpaper
     networkmanagerapplet
+    swaylock-fancy
   ];
 }
