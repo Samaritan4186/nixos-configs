@@ -71,8 +71,14 @@
     hyprland.enable = true;
     steam.enable = true;
     nm-applet.enable = true;
-    swaylock-fancy.enable = true;
+    sway.enable = true;
   };
+
+  environment.systemPackages = [
+    pkgs.swaylock
+    pkgs.swayidle
+  ];
+
   # TODO: Set your hostname
   networking.hostName = "Messier";
 
