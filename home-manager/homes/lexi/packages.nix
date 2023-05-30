@@ -4,5 +4,6 @@
     kitty
     wofi
     tetrio-desktop
+    hyprpaper
   ];
 }
