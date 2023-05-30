@@ -29,11 +29,12 @@
   } @ inputs: let
     inherit (self) outputs;
     forAllSystems = nixpkgs.lib.genAttrs [
-      "aarch64-linux"
-      "i686-linux"
+      #"aarch64-linux"
+      #"i686-linux"
       "x86_64-linux"
-      "aarch64-darwin"
-      "x86_64-darwin"
+      #"aarch64-darwin"
+      #"x86_64-darwin"
+      # uncomment system types as they are added to the list of hosts
     ];
   in rec {
     # Your custom packages
@@ -64,25 +65,35 @@
 
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
-    nixosConfigurations = {
+    nixosConfigurations = let
+      home-manager = inputs.home-manager.nixosModules.home-manager; # get home-manager module from the flake
+
+      homes = ./home-manager; # shared homes module
+      nixos = ./modules/nixos; # shared nixos module
+      sharedModules = [homes nixos home-manager]; # a list that contains modules to be shared
+    in {
       # FIXME replace with your hostname
       Messier = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
-        modules = [
-          # > Our main nixos configuration file <
-          ./nixos/hosts/messier # this imports the entirety of messier's configs
-          ./modules/nixos # this imports the shared nixos module that lets you re-use settings between hosts
-        ];
+        modules =
+          [
+            # > Our main nixos configuration file <
+            ./nixos/hosts/messier # this imports the entirety of messier's configs
+            ./modules/nixos # this imports the shared nixos module that lets you re-use settings between hosts
+          ]
+          ++ sharedModules;
       };
 
       # this is another sample host
       Andromeda = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
-        modules = [
-          # > Our main nixos configuration file <
-          ./nixos/hosts/Andromeda # this imports the entirety of host2's configs
-          ./modules/nixos
-        ];
+        modules =
+          [
+            # > Our main nixos configuration file <
+            ./nixos/hosts/Andromeda # this imports the entirety of host2's configs
+            ./modules/nixos
+          ]
+          ++ sharedModules;
       };
     };
 
