@@ -101,12 +101,12 @@
     # Available through 'home-manager --flake .#your-username@your-hostname'
     homeConfigurations = {
       # FIXME replace with your username@hostname
-      "lexi@Messier" = home-manager.lib.homeManagerConfiguration {
+      "rion@Messier" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
           # > Our main home-manager configuration file <
-          ./home-manager/homes/lexi
+          ./home-manager/homes/rion
         ];
       };
     };

@@ -135,9 +135,9 @@
   };
 
   # define user acc
-  users.users.lexi = {
+  users.users.rion = {
     isNormalUser = true;
-    description = "Lexi";
+    description = "Rion";
     extraGroups = ["networkmanager" "wheel"];
     openssh.authorizedKeys.keys = [
       # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect

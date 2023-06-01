@@ -20,8 +20,8 @@
 
   # TODO: Set your username
   home = {
-    username = "lexi";
-    homeDirectory = "/home/lexi";
+    username = "rion";
+    homeDirectory = "/home/rion";
   };
 
   # let HM manage itself when in standalone mode

@@ -10,7 +10,7 @@
       inherit inputs self;
     };
     users = {
-      lexi = ./homes/lexi;
+      lexi = ./homes/rion;
       # more users can go here, the format is only for convenience
     };
   };
