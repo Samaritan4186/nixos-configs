@@ -95,6 +95,18 @@
           ]
           ++ sharedModules;
       };
+
+      Dysnomia = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules =
+          [
+            # > Our main nixos configuration file <
+            ./nixos/hosts/Dysnomia # this imports the entirety of host2's configs
+            ./modules/nixos
+          ]
+          ++ sharedModules;
+      };
+
     };
 
     # Standalone home-manager configuration entrypoint
