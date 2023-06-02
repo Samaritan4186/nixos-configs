@@ -7,5 +7,7 @@
     hyprpaper
     networkmanagerapplet
     swaylock
+    grim
+    slurp
   ];
 }
