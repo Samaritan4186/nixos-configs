@@ -14,5 +14,6 @@
     libsForQt5.dolphin
     prismlauncher
     brightnessctl
+    jetbrains.pycharm-professional
   ];
 }
