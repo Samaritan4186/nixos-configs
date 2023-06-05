@@ -9,5 +9,10 @@
     swaylock
     grim
     slurp
+    webcord-vencord
+    vmware-workstation
+    libsForQt5.dolphin
+    prismlauncher
+    brightnessctl
   ];
 }
